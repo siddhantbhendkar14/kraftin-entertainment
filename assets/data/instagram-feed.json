@@ -1,0 +1,105 @@
+{
+  "profile": "https://www.instagram.com/kraftin.entertainment/",
+  "username": "kraftin.entertainment",
+  "updated": "2026-06-05",
+  "posts": [
+    {
+      "id": "ig-reel-01",
+      "type": "reel",
+      "video": "/assets/extracted/videos/ring/78597.mp4",
+      "thumbnail": "/assets/extracted/photos/77817.jpg",
+      "link": "https://www.instagram.com/kraftin.entertainment/reels/"
+    },
+    {
+      "id": "ig-reel-02",
+      "type": "reel",
+      "video": "/assets/extracted/videos/ring/78599.mp4",
+      "thumbnail": "/assets/extracted/photos/77820.jpg",
+      "link": "https://www.instagram.com/kraftin.entertainment/reels/"
+    },
+    {
+      "id": "ig-reel-03",
+      "type": "reel",
+      "video": "/assets/extracted/videos/mayra/78603.mp4",
+      "thumbnail": "/assets/extracted/photos/77821.jpg",
+      "link": "https://www.instagram.com/kraftin.entertainment/reels/"
+    },
+    {
+      "id": "ig-reel-04",
+      "type": "reel",
+      "video": "/assets/extracted/videos/mayra/78607.mp4",
+      "thumbnail": "/assets/extracted/photos/77822.jpg",
+      "link": "https://www.instagram.com/kraftin.entertainment/reels/"
+    },
+    {
+      "id": "ig-reel-05",
+      "type": "reel",
+      "video": "/assets/extracted/videos/ring/78601.mp4",
+      "thumbnail": "/assets/extracted/photos/77823.jpg",
+      "link": "https://www.instagram.com/kraftin.entertainment/reels/"
+    },
+    {
+      "id": "ig-reel-06",
+      "type": "reel",
+      "video": "/assets/extracted/videos/general/VID_20260526_044533_044.mp4",
+      "thumbnail": "/assets/extracted/photos/77832.jpg",
+      "link": "https://www.instagram.com/kraftin.entertainment/reels/"
+    },
+    {
+      "id": "ig-video-01",
+      "type": "video",
+      "video": "/assets/extracted/videos/mayra/78612.mp4",
+      "thumbnail": "/assets/extracted/photos/77836.jpg",
+      "link": "https://www.instagram.com/kraftin.entertainment/"
+    },
+    {
+      "id": "ig-video-02",
+      "type": "video",
+      "video": "/assets/extracted/videos/ring/78613.mp4",
+      "thumbnail": "/assets/extracted/photos/77839.jpg",
+      "link": "https://www.instagram.com/kraftin.entertainment/"
+    },
+    {
+      "id": "ig-photo-01",
+      "type": "image",
+      "image": "/assets/images/social/whatsapp-image-2026-06-05-at-7.12.56-pm.jpeg",
+      "link": "https://www.instagram.com/kraftin.entertainment/"
+    },
+    {
+      "id": "ig-photo-02",
+      "type": "image",
+      "image": "/assets/images/social/whatsapp-image-2026-06-05-at-7.12.58-pm.jpeg",
+      "link": "https://www.instagram.com/kraftin.entertainment/"
+    },
+    {
+      "id": "ig-photo-03",
+      "type": "image",
+      "image": "/assets/images/social/whatsapp-image-2026-06-05-at-7.13.00-pm.jpeg",
+      "link": "https://www.instagram.com/kraftin.entertainment/"
+    },
+    {
+      "id": "ig-photo-04",
+      "type": "image",
+      "image": "/assets/images/social/whatsapp-image-2026-06-05-at-7.13.02-pm.jpeg",
+      "link": "https://www.instagram.com/kraftin.entertainment/"
+    },
+    {
+      "id": "ig-photo-05",
+      "type": "image",
+      "image": "/assets/images/social/whatsapp-image-2026-06-05-at-7.14.16-pm.jpeg",
+      "link": "https://www.instagram.com/kraftin.entertainment/"
+    },
+    {
+      "id": "ig-photo-06",
+      "type": "image",
+      "image": "/assets/images/social/whatsapp-image-2026-06-05-at-7.14.26-pm.jpeg",
+      "link": "https://www.instagram.com/kraftin.entertainment/"
+    },
+    {
+      "id": "ig-photo-07",
+      "type": "image",
+      "image": "/assets/images/social/whatsapp-image-2026-06-05-at-7.14.58-pm.jpeg",
+      "link": "https://www.instagram.com/kraftin.entertainment/"
+    }
+  ]
+}

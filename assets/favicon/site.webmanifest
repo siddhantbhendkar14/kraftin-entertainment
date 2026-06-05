@@ -1,0 +1,19 @@
+{
+  "name": "Kraftin Entertainment",
+  "short_name": "Kraftin",
+  "icons": [
+    {
+      "src": "/assets/favicon/android-chrome-192x192.png?v=3",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/favicon/android-chrome-512x512.png?v=3",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#1c1c1c",
+  "background_color": "#faf7f2",
+  "display": "standalone"
+}

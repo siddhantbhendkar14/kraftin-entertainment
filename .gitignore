@@ -1,0 +1,21 @@
+.DS_Store
+.vscode/
+.idea/
+node_modules/
+.env
+.env.local
+.env.production
+.cache/
+dist/
+build/
+
+# Root working copies and archives (deployed site uses assets/)
+/*.zip
+/BRIDAL.mp4
+/CARNIVAL.mp4
+/MAYRA.mp4
+/RING.mp4
+/VARMALA REEL.mp4
+/IMG_3948.MOV
+/IMG_5315.MOV
+/IMG_7298.MOV
