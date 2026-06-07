@@ -19,31 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initPageHeroParallax();
 });
 
-/* Header scroll effect + dual-logo swap */
-const LOGO_DARK = '/assets/images/logo-Photoroom.png';
-const LOGO_LIGHT = '/assets/images/logo-photoroom2.png';
-
+/* Header scroll effect */
 function initHeader() {
   const header = document.querySelector('.header');
   if (!header) return;
 
-  const logoImg = header.querySelector('.site-logo img, .logo img');
-  let useLightLogo = null;
-
-  const preloadLightLogo = new Image();
-  preloadLightLogo.src = LOGO_LIGHT;
-
-  const syncHeaderLogo = () => {
-    if (!logoImg) return;
-    const light = header.classList.contains('scrolled') || !header.classList.contains('header--dark');
-    if (light === useLightLogo) return;
-    useLightLogo = light;
-    logoImg.src = light ? LOGO_LIGHT : LOGO_DARK;
-  };
-
   const onScroll = () => {
     header.classList.toggle('scrolled', window.scrollY > 50);
-    syncHeaderLogo();
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });

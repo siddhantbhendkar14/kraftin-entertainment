@@ -239,22 +239,22 @@ ul { list-style: none; }
 
 .header--dark.scrolled,
 .header.scrolled {
-  background: rgba(255, 255, 255, 0.97);
+  background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(20px);
-  box-shadow: 0 1px 0 var(--border-light);
+  box-shadow: 0 1px 0 rgba(201, 169, 98, 0.15);
 }
 
 .header.scrolled .nav-desktop a {
-  color: var(--text-dark-secondary);
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .header.scrolled .nav-desktop a:hover,
 .header.scrolled .nav-desktop a.active {
-  color: var(--text-dark);
+  color: var(--gold-champagne);
 }
 
 .header.scrolled .menu-toggle span {
-  background: var(--text-dark);
+  background: #fff;
 }
 
 .header-inner {
@@ -301,7 +301,7 @@ ul { list-style: none; }
 .header.scrolled .site-logo img,
 .header:not(.header--dark) .logo img,
 .header:not(.header--dark) .site-logo img {
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.08));
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.35)) drop-shadow(0 0 10px rgba(201, 169, 98, 0.12));
 }
 
 .footer-logo {
@@ -370,7 +370,7 @@ ul { list-style: none; }
 
 .header.scrolled .nav-desktop a:hover,
 .header.scrolled .nav-desktop a.active {
-  color: var(--text-dark);
+  color: var(--gold-champagne);
 }
 
 .header-cta { display: flex; align-items: center; gap: 16px; }
@@ -557,7 +557,9 @@ ul { list-style: none; }
 .hero-logo {
   display: block;
   width: clamp(160px, 18vw, 220px);
-  height: auto;
+  height: clamp(132px, 15vw, 188px);
+  object-fit: cover;
+  object-position: top center;
   margin: 0 auto 36px;
   opacity: 0;
   transform: translateY(16px);
@@ -699,12 +701,14 @@ ul { list-style: none; }
 /* Why Choose */
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 24px;
   margin-top: 60px;
+  align-items: stretch;
 }
 
 .feature-card {
+  grid-column: span 2;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -712,6 +716,9 @@ ul { list-style: none; }
   transition: all var(--transition);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .feature-card::before {
@@ -729,6 +736,14 @@ ul { list-style: none; }
 .feature-card {
   transform-style: preserve-3d;
   perspective: 800px;
+}
+
+#why-kraftin .feature-card:nth-child(7) {
+  grid-column: 2 / span 2;
+}
+
+#why-kraftin .feature-card:nth-child(8) {
+  grid-column: 4 / span 2;
 }
 
 .feature-card:hover {
@@ -760,6 +775,7 @@ ul { list-style: none; }
   color: var(--text-secondary);
   font-size: 0.95rem;
   line-height: 1.7;
+  flex: 1;
 }
 
 /* Services */
@@ -1578,7 +1594,7 @@ a.event-card {
 /* About Page */
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(280px, 1.1fr) 1fr;
   gap: 60px;
   align-items: center;
 }
@@ -1586,13 +1602,17 @@ a.event-card {
 .about-image {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(201, 169, 98, 0.12);
+  max-width: 520px;
+  margin: 0 auto;
 }
 
 .about-image img {
   width: 100%;
-  aspect-ratio: 3/2;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
+  object-position: center 18%;
+  display: block;
 }
 
 .about-text p {
@@ -2449,10 +2469,13 @@ main > .section:not(.hero):not(.cta-section):not(.testimonials) {
 @media (max-width: 1024px) {
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .feature-card { grid-column: auto; }
+  #why-kraftin .feature-card:nth-child(7),
+  #why-kraftin .feature-card:nth-child(8) { grid-column: auto; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .artist-category-grid { grid-template-columns: repeat(2, 1fr); }
   .events-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero-logo { width: clamp(130px, 16vw, 180px); margin-bottom: 32px; }
+  .hero-logo { width: clamp(130px, 16vw, 180px); height: clamp(108px, 13vw, 154px); margin-bottom: 32px; }
   .instagram-masonry { column-count: 3; }
   .footer-grid { grid-template-columns: repeat(2, 1fr); }
   .about-grid { grid-template-columns: 1fr; }
@@ -2474,7 +2497,10 @@ main > .section:not(.hero):not(.cta-section):not(.testimonials) {
   .events-grid,
   .blog-grid,
   .mentors-grid { grid-template-columns: 1fr; }
-  .hero-logo { width: clamp(90px, 22vw, 130px); margin-bottom: 28px; }
+  .feature-card,
+  #why-kraftin .feature-card:nth-child(7),
+  #why-kraftin .feature-card:nth-child(8) { grid-column: auto; }
+  .hero-logo { width: clamp(90px, 22vw, 130px); height: clamp(74px, 18vw, 112px); margin-bottom: 28px; }
   .instagram-masonry { column-count: 2; column-gap: 12px; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .contact-form .form-row { grid-template-columns: 1fr; }
