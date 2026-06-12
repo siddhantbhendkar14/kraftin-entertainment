@@ -8,9 +8,57 @@ type BlogListingProps = {
 
 const FALLBACK_IMAGE = '/assets/images/blog/wedding-trends.jpg';
 
+const LEGACY_FEATURED = {
+  image: '/assets/images/blog/wedding-featured.jpg',
+  title: 'The Art of Crafting Extraordinary Wedding Experiences in India',
+  excerpt:
+    'Discover how premium wedding planning blends tradition with innovation to create unforgettable celebrations.'
+};
+
+const LEGACY_PLACEHOLDER_POSTS = [
+  {
+    image: '/assets/images/blog/wedding-trends.jpg',
+    category: 'Wedding Planning',
+    title: '5 Trends Shaping Indian Weddings in 2025',
+    excerpt:
+      "From immersive décor to personalized experiences, explore what's defining modern Indian weddings."
+  },
+  {
+    image: '/assets/images/blog/corporate-events.jpg',
+    category: 'Corporate Events',
+    title: 'How to Plan a Corporate Event That Leaves a Lasting Impression',
+    excerpt: 'Strategic planning tips for corporate gatherings, launches, and brand activations.'
+  },
+  {
+    image: '/assets/images/blog/artist-management.jpg',
+    category: 'Artist Management',
+    title: 'Choosing the Right Artist for Your Event: A Complete Guide',
+    excerpt: "Navigate Kraftin's Pan-India artist network to find the perfect act for your celebration."
+  },
+  {
+    image: '/assets/images/blog/concerts.jpg',
+    category: 'Concerts',
+    title: 'Behind the Scenes: Producing World-Class Concert Experiences',
+    excerpt: 'Sound, SFX, and production excellence — what goes into a memorable live concert.'
+  },
+  {
+    image: '/assets/images/blog/exhibitions.jpg',
+    category: 'Exhibitions',
+    title: 'Stand Out at Trade Shows: Exhibition Booth Design Tips',
+    excerpt: 'Make your brand unforgettable at exhibitions with strategic booth design and engagement.'
+  },
+  {
+    image: '/assets/images/blog/event-tips.jpg',
+    category: 'Event Tips',
+    title: 'Event Planning Checklist: From Concept to Celebration',
+    excerpt: "A comprehensive guide to planning flawless events with Kraftin's end-to-end approach."
+  }
+] as const;
+
 export default function BlogListing({ blogs }: BlogListingProps) {
-  const featured = blogs[0] ?? null;
-  const gridPosts = featured ? blogs.slice(1) : blogs;
+  const hasPublishedPosts = blogs.length > 0;
+  const featured = hasPublishedPosts ? blogs[0] : null;
+  const gridPosts = featured ? blogs.slice(1) : [];
 
   return (
     <>
@@ -48,12 +96,13 @@ export default function BlogListing({ blogs }: BlogListingProps) {
               <article className="blog-featured-card reveal">
                 <div
                   className="blog-featured-bg"
-                  style={{ backgroundImage: "url('/assets/images/blog/wedding-featured.jpg')" }}
+                  style={{ backgroundImage: `url('${LEGACY_FEATURED.image}')` }}
                 />
                 <div className="blog-featured-content">
                   <span className="blog-category">Featured</span>
-                  <h2>Insights from Kraftin Entertainment</h2>
-                  <p>New articles will appear here once published from the admin dashboard.</p>
+                  <h2>{LEGACY_FEATURED.title}</h2>
+                  <p>{LEGACY_FEATURED.excerpt}</p>
+                  <span className="blog-card-meta">Coming Soon</span>
                 </div>
               </article>
             )}
@@ -104,11 +153,20 @@ export default function BlogListing({ blogs }: BlogListingProps) {
                 </Link>
               ))
             ) : (
-              !featured && (
-                <p className="reveal" style={{ gridColumn: '1 / -1', color: 'rgba(250,247,242,0.7)' }}>
-                  No published articles yet. Check back soon.
-                </p>
-              )
+              LEGACY_PLACEHOLDER_POSTS.map((post) => (
+                <article key={post.title} className="blog-card reveal">
+                  <div
+                    className="blog-card-image"
+                    style={{ backgroundImage: `url('${post.image}')` }}
+                  />
+                  <div className="blog-card-content">
+                    <span className="blog-category">{post.category}</span>
+                    <h3>{post.title}</h3>
+                    <p>{post.excerpt}</p>
+                    <span className="blog-card-meta">Coming Soon</span>
+                  </div>
+                </article>
+              ))
             )}
           </div>
         </div>
