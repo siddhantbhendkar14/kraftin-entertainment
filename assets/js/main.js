@@ -1,6 +1,6 @@
 /* Kraftin Entertainment — Main JavaScript */
 
-document.addEventListener('DOMContentLoaded', () => {
+function bootSite() {
   initHeader();
   initMobileNav();
   initHeroAnimations();
@@ -17,7 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initWhatsApp();
   initMediaAutoplay();
   initPageHeroParallax();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootSite);
+} else {
+  bootSite();
+}
 
 /* Header scroll effect */
 function initHeader() {

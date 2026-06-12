@@ -1,4 +1,3 @@
-import Script from 'next/script';
 import type { ReactNode } from 'react';
 
 export type NavKey =
@@ -254,18 +253,11 @@ export default function SiteChrome({
         </div>
       ) : null}
 
-      <Script
-        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-        strategy="afterInteractive"
-      />
-      <Script
-        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
-        strategy="afterInteractive"
-      />
-      <Script src="/assets/js/main.js" strategy="afterInteractive" />
-      {showInstagram ? (
-        <Script src="/assets/js/instagram-feed.js" strategy="afterInteractive" />
-      ) : null}
+      {/* Legacy defer scripts — must match index.html load order (before DOMContentLoaded). */}
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer />
+      <script src="/assets/js/main.js" defer />
+      {showInstagram ? <script src="/assets/js/instagram-feed.js" defer /> : null}
     </>
   );
 }
