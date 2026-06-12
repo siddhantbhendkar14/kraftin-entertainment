@@ -1,7 +1,7 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
-import { requireAdmin } from '@/lib/auth/admin';
+import { AuthError, requireAdmin } from '@/lib/auth/admin';
 import { getNextGalleryOrder } from '@/lib/cms/gallery';
 import { deleteFromCloudinary } from '@/lib/cloudinary';
 import { GALLERY_CATEGORIES } from '@/lib/cms/constants';
@@ -110,8 +110,12 @@ export async function deleteGalleryItemAction(id: string): Promise<ActionState> 
           item.cloudinary_id,
           item.media_type === 'video' ? 'video' : 'image'
         );
-      } catch {
-        /* Cloudinary cleanup is best-effort */
+      } catch (err) {
+        console.warn('[gallery] Cloudinary delete failed', {
+          cloudinary_id: item.cloudinary_id,
+          media_type: item.media_type,
+          error: err instanceof Error ? err.message : String(err)
+        });
       }
     }
 
@@ -154,6 +158,7 @@ export async function reorderGalleryItemsAction(orderedIds: string[]): Promise<A
     revalidatePath('/admin/gallery');
     return { success: 'Order saved.' };
   } catch (e) {
+    if (e instanceof AuthError) throw e;
     return { error: e instanceof Error ? e.message : 'Failed to reorder gallery.' };
   }
 }

@@ -7,7 +7,7 @@
       "source": "/:path*",
       "has": [{ "type": "host", "value": "kraftinentertainment.com" }],
       "destination": "https://www.kraftinentertainment.com/:path*",
-      "permanent": true
+      "statusCode": 301
     }
   ],
   "headers": [

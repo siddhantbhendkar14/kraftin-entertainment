@@ -1,20 +1,22 @@
 import SiteChrome from '@/components/site/SiteChrome';
 import '../blog-article.css';
 
-export default function BlogArticleLoading() {
+export default function BlogsLoading() {
   return (
     <SiteChrome activeNav="blogs">
       <main>
         <section className="page-hero page-hero--media">
           <div className="page-hero-overlay" />
           <div className="container">
-            <div className="blog-loading-card" style={{ height: 48, marginBottom: 16 }} />
-            <div className="blog-loading-card" style={{ height: 64 }} />
+            <span className="section-label">Insights &amp; Stories</span>
+            <h1>BLOGS</h1>
           </div>
         </section>
         <section className="section">
-          <div className="container">
-            <div className="blog-loading-card" style={{ height: 280 }} />
+          <div className="container blog-loading-grid">
+            <div className="blog-loading-card" />
+            <div className="blog-loading-card" />
+            <div className="blog-loading-card" />
           </div>
         </section>
       </main>

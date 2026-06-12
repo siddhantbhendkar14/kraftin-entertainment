@@ -1,6 +1,6 @@
 import SiteChrome from '@/components/site/SiteChrome';
 import BlogListing from '@/components/blog/BlogListing';
-import './blog-article.css';
+import '../blog-article.css';
 import { getPublishedBlogs } from '@/lib/cms/blogs';
 import { SITE_URL } from '@/lib/cms/constants';
 import type { Metadata } from 'next';

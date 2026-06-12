@@ -10,10 +10,14 @@ type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const blog = await getPublishedBlogBySlug(slug);
-  if (!blog) return { title: 'Article not found' };
+  if (!blog) {
+    return { title: 'Article not found » Kraftin Entertainment' };
+  }
 
   const title = blog.seo_title || `${blog.title} » Kraftin Entertainment`;
   const description = blog.seo_description || blog.excerpt || '';
