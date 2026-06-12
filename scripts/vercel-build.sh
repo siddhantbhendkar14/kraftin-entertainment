@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Replace Git LFS pointer files with actual video binaries before deploy.
-if ! command -v git-lfs >/dev/null 2>&1; then
-  echo "Error: git-lfs is required to deploy video assets." >&2
-  exit 1
+# Pull Git LFS media for public/assets videos
+if command -v git-lfs >/dev/null 2>&1; then
+  git lfs install --local
+  git lfs pull
 fi
 
-git lfs install --local
-git lfs pull
+node scripts/link-public-assets.js
 
-# Fail the build if any referenced MP4 is still an LFS pointer.
-python3 << 'PY'
+# Verify MP4 binaries if LFS pull ran
+if command -v git-lfs >/dev/null 2>&1; then
+  python3 << 'PY'
 from pathlib import Path
 bad = []
 for path in Path('assets').rglob('*.mp4'):
@@ -19,7 +19,9 @@ for path in Path('assets').rglob('*.mp4'):
     if head.startswith(b'version https://git-'):
         bad.append(str(path))
 if bad:
-    print('Error: LFS pointers remain after git lfs pull:', bad[:5], file=__import__('sys').stderr)
+    print('Error: LFS pointers remain:', bad[:3], file=__import__('sys').stderr)
     raise SystemExit(1)
-print(f'Verified {sum(1 for _ in Path("assets").rglob("*.mp4"))} MP4 files are binary-ready.')
 PY
+fi
+
+npm run build

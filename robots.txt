@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kraftinentertainment.com/sitemap.xml
+Sitemap: https://www.kraftinentertainment.com/sitemap.xml

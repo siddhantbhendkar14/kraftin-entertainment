@@ -8,6 +8,11 @@ node_modules/
 .cache/
 dist/
 build/
+.next/
+out/
+.env*.local
+!.env.local.example
+public/assets
 
 # Root working copies and archives (deployed site uses assets/)
 /*.zip
@@ -19,3 +24,4 @@ build/
 /IMG_3948.MOV
 /IMG_5315.MOV
 /IMG_7298.MOV
+.vercel
