@@ -19,12 +19,6 @@ function bootSite() {
   initPageHeroParallax();
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', bootSite);
-} else {
-  bootSite();
-}
-
 /* Header scroll effect */
 function initHeader() {
   const header = document.querySelector('.header');
@@ -626,4 +620,10 @@ function initPageHeroParallax() {
       }
     });
   });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootSite);
+} else {
+  bootSite();
 }
