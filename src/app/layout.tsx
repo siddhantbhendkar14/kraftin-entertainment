@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import '../../assets/css/main.css';
+import '../../assets/css/icons.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.kraftinentertainment.com'),
@@ -16,8 +18,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
-        <link rel="stylesheet" href="/assets/css/main.css" />
-        <link rel="stylesheet" href="/assets/css/icons.css" />
         <link rel="icon" href="/assets/favicon/favicon-32x32.png?v=3" type="image/png" sizes="32x32" />
         <link rel="icon" href="/assets/favicon/favicon-16x16.png?v=3" type="image/png" sizes="16x16" />
         <link rel="icon" href="/assets/favicon/favicon-48x48.png?v=3" type="image/png" sizes="48x48" />
