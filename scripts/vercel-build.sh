@@ -7,7 +7,12 @@ if command -v git-lfs >/dev/null 2>&1; then
   git lfs pull
 fi
 
-node scripts/link-public-assets.js
+VERCEL=1 node scripts/link-public-assets.js
+
+if [ ! -f public/assets/css/main.css ] || [ ! -f public/assets/js/main.js ]; then
+  echo "Error: public/assets missing CSS/JS after copy" >&2
+  exit 1
+fi
 
 # Verify MP4 binaries if LFS pull ran
 if command -v git-lfs >/dev/null 2>&1; then
