@@ -23,8 +23,7 @@ const NAV: { key: NavKey; href: string; label: string }[] = [
   { key: 'about-us', href: '/about-us/', label: 'About us' },
   { key: 'our-mentors', href: '/our-mentors/', label: 'Our Mentors' },
   { key: 'our-artists', href: '/our-artists/', label: 'Our Artists' },
-  { key: 'blogs', href: '/blogs/', label: 'Blog' },
-  { key: 'gallery', href: '/gallery/', label: 'Gallery' }
+  { key: 'blogs', href: '/blogs/', label: 'Blog' }
 ];
 
 export default function SiteChrome({
